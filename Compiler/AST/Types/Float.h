@@ -8,7 +8,7 @@ public:
         : _value(value) {}
 
     ~Float() override = default;
-    compileReturnValue compile() override {}
+    void compile(std::vector<Byte>& outputStream) const override;
     void print() override;
 
 private:

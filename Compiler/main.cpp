@@ -1,5 +1,5 @@
-#include <pthread.h>
-
+#include <iostream>
+#include <bitset>
 #include "AST/Operators/BinaryOperator.h"
 #include "AST/Types/Integer.h"
 #include "AST/ASTNode.h"
@@ -13,6 +13,13 @@ int main() {
     BinaryOperator add1(&int1, &float2, ADDITION);
     BinaryOperator add2(&int3, &add1, MULTIPLICATION);
     add2.print();
+
+    std::vector<Byte> vec;
+    add2.compile(vec);
+
+    for (const Byte& b : vec) {
+        std::cout << std::bitset<8>(static_cast<uint8_t>(b)) << std::endl;
+    }
 
     return 0;
 }

@@ -16,7 +16,7 @@ public:
           _operatorType(operatorType) {}
 
     void print() override;
-    compileReturnValue compile() override {}
+    void compile(std::vector<Byte>& outputStream) const override;
     ~BinaryOperator() override = default;
 
 private:

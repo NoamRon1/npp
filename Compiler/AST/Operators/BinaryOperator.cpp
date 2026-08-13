@@ -23,3 +23,25 @@ void BinaryOperator::print() {
     _right->print();
     std::cout << ")";
 }
+
+void BinaryOperator::compile(std::vector<Byte>& outputStream) const {
+    _left->compile(outputStream);
+    _right->compile(outputStream);
+
+    Byte operation;
+    switch (_operatorType) {
+    case ADDITION:
+        operation = OpcodesBytes[Opcodes::ADD];
+        break;
+    case SUBTRACTION:
+        operation = OpcodesBytes[Opcodes::ADD];
+        break;
+    case MULTIPLICATION:
+        operation = OpcodesBytes[Opcodes::MUL];
+        break;
+    case DIVISION:
+        operation = OpcodesBytes[Opcodes::MUL];
+        break;
+    }
+    outputStream.push_back(operation);
+}

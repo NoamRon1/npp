@@ -10,6 +10,7 @@ add_executable(Compiler
 		AST/Operators/BinaryOperator.h
 		AST/Types/Float.cpp
 		AST/Types/Float.h
+		Opcodes.h
 )
 
 

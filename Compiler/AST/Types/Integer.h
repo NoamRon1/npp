@@ -4,13 +4,13 @@
 
 class Integer : public ASTNode {
 public:
-    Integer(int value)
+    Integer(int32_t value)
         : _value(value) {}
 
     ~Integer() override = default;
-    compileReturnValue compile() override {}
+    void compile(std::vector<Byte>& outputStream) const override;
     void print() override;
 
 private:
-    int _value;
+    int32_t _value;
 };

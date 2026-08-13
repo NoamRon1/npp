@@ -1,10 +1,10 @@
 #pragma once
-
-typedef void compileReturnValue;
+#include <vector>
+#include "../Opcodes.h"
 
 class ASTNode {
 public:
     virtual ~ASTNode() = default;
-    virtual compileReturnValue compile() = 0;
+    virtual void compile(std::vector<Byte>& outputStream) const = 0;
     virtual void print() = 0;
 };
