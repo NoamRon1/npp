@@ -13,12 +13,13 @@ int main() {
     BinaryOperator add1(&int1, &float2, ADDITION);
     BinaryOperator add2(&int3, &add1, MULTIPLICATION);
     add2.print();
+    std::cout << std::endl << std::endl;
 
     std::vector<Byte> vec;
     add2.compile(vec);
 
     for (const Byte& b : vec) {
-        std::cout << std::bitset<8>(static_cast<uint8_t>(b)) << std::endl;
+        std::cout << std::bitset<8>(b) << std::endl;
     }
 
     return 0;

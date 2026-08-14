@@ -2,7 +2,7 @@
 #include <map>
 #include <cstdint>
 
-using Byte = std::int8_t;
+using Byte = std::uint8_t;
 
 enum Opcodes {
     PUSH,
