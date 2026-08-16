@@ -11,6 +11,7 @@ add_executable(Compiler
 		AST/Types/Float.cpp
 		AST/Types/Float.h
 		Opcodes.h
+		ByteWriter.cpp
 )
 
 

@@ -4,6 +4,7 @@
 #include "AST/Types/Integer.h"
 #include "AST/ASTNode.h"
 #include "AST/Types/Float.h"
+#include "ByteWriter.h"
 
 int main() {
     Integer int1(1);
@@ -17,6 +18,7 @@ int main() {
 
     std::vector<Byte> vec;
     add2.compile(vec);
+    writeFile("output.bin", vec, {});
 
     for (const Byte& b : vec) {
         std::cout << std::bitset<8>(b) << std::endl;
