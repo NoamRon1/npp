@@ -16,11 +16,13 @@ int main() {
     add2.print();
     std::cout << std::endl << std::endl;
 
-    std::vector<Byte> vec;
-    add2.compile(vec);
-    writeFile("output.bin", vec, {});
+    std::vector<Byte> code;
+    add2.compile(code);
 
-    for (const Byte& b : vec) {
+    code.push_back(OpcodesBytes[Opcodes::HALT]);
+    writeFile("output.bin", code, {});
+
+    for (const Byte& b : code) {
         std::cout << std::bitset<8>(b) << std::endl;
     }
 

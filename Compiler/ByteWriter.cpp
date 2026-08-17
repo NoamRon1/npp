@@ -13,15 +13,16 @@ void writeFile(const std::string& filename, const std::vector<Byte>& code, const
 
     // consts length
     char bytes[sizeof(uint32_t)];
-    uint32_t consts_length = consts.size() * sizeof(Byte);
-    std::memcpy(bytes, &consts_length, sizeof(uint32_t));
+    uint32_t constsLength = consts.size() * sizeof(Byte);
+    std::memcpy(bytes, &constsLength, sizeof(uint32_t));
     file.write(bytes, sizeof(uint32_t));
 
     // consts:
-    file.write(reinterpret_cast<const char*>(consts.data()), consts_length);
+    file.write(reinterpret_cast<const char*>(consts.data()), constsLength);
 
     // code:
-    file.write(reinterpret_cast<const char*>(code.data()), code.size());
+    uint32_t codeLength = code.size() * sizeof(Byte);
+    file.write(reinterpret_cast<const char*>(code.data()), codeLength);
 
     file.close();
 }

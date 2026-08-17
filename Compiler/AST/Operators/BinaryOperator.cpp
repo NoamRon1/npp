@@ -34,13 +34,13 @@ void BinaryOperator::compile(std::vector<Byte>& outputStream) const {
         operation = OpcodesBytes[Opcodes::ADD];
         break;
     case SUBTRACTION:
-        operation = OpcodesBytes[Opcodes::ADD];
+        operation = OpcodesBytes[Opcodes::SUB];
         break;
     case MULTIPLICATION:
         operation = OpcodesBytes[Opcodes::MUL];
         break;
     case DIVISION:
-        operation = OpcodesBytes[Opcodes::MUL];
+        operation = OpcodesBytes[Opcodes::DIV];
         break;
     }
     outputStream.push_back(operation);

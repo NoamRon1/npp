@@ -7,11 +7,17 @@ using Byte = std::uint8_t;
 enum Opcodes {
     PUSH,
     ADD,
-    MUL
+    SUB,
+    MUL,
+    DIV,
+    HALT
 };
 
 static std::map<Opcodes, Byte> OpcodesBytes = {
     {PUSH, 0},
     {ADD, 1},
-    {MUL, 2}
+    {SUB, 2},
+    {MUL, 3},
+    {DIV, 4},
+    {HALT, 5}
 };
