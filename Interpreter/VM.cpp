@@ -29,33 +29,44 @@ void VM::run(const Chunk& chunk) {
                 push(value);
                 ip += 4;
 
+
+                std::cout << "Pushed: " << value << std::endl;
                 break;
             }
             case OP_ADD: {
                 double b = pop();
                 double a = pop();
                 push(a + b);
+
+                std::cout << "Added: " << a << " + " << b << std::endl;
                 break;
             }
             case OP_SUBTRACT: {
                 double b = pop();
                 double a = pop();
                 push(a - b);
+
+                std::cout << "Subtracted: " << a << " - " << b << std::endl;
                 break;
             }
             case OP_MULTIPLY: {
                 double b = pop();
                 double a = pop();
                 push(a * b);
+
+                std::cout << "Multiplied: " << a << " * " << b << std::endl;
                 break;
             }
             case OP_DIVIDE: {
                 double b = pop();
                 double a = pop();
                 push(a / b);
+
+                std::cout << "Divided: " << a << " / " << b << std::endl;
                 break;
             }
             case OP_HALT: {
+                std::cout << "Halted!" << std::endl;
                 std::cout << "result: " << *(_sp - 1) << "\n";
                 return;
             }
