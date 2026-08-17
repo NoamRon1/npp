@@ -3,7 +3,6 @@
 #include "AST/Operators/BinaryOperator.h"
 #include "AST/Types/Integer.h"
 #include "AST/ASTNode.h"
-#include "AST/Types/Float.h"
 #include "ByteWriter.h"
 
 int main() {

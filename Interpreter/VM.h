@@ -15,7 +15,7 @@ private:
     uint32_t* _sp = _stack; //stack pointer
 
     //helpers
-    void push(double value);
+    void push(uint32_t value);
     uint32_t pop();
 };
 
