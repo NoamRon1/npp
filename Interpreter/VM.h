@@ -11,12 +11,12 @@ public:
     void run(const Chunk& chunk);
 
 private:
-    double _stack[STACK_MAX];
-    double* _sp = _stack; //stack pointer
+    uint32_t _stack[STACK_MAX];
+    uint32_t* _sp = _stack; //stack pointer
 
     //helpers
     void push(double value);
-    double pop(); 
+    uint32_t pop();
 };
 
 

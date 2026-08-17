@@ -3,19 +3,18 @@
 #include "Chunk.h"
 #include <iostream>
 
-void VM::push(double value) {
+void VM::push(uint32_t value) {
     *_sp = value;
     _sp++;
 }
 
-double VM::pop() {
+uint32_t VM::pop() {
     _sp--;
     return *_sp;
 }
 
 void VM::run(const Chunk& chunk) {
     _sp = _stack;
-
 
     const uint8_t* ip = chunk.code.data();
 
@@ -34,32 +33,32 @@ void VM::run(const Chunk& chunk) {
                 break;
             }
             case OP_ADD: {
-                double b = pop();
-                double a = pop();
+                uint32_t b = pop();
+                uint32_t a = pop();
                 push(a + b);
 
                 std::cout << "Added: " << a << " + " << b << std::endl;
                 break;
             }
             case OP_SUBTRACT: {
-                double b = pop();
-                double a = pop();
+                uint32_t b = pop();
+                uint32_t a = pop();
                 push(a - b);
 
                 std::cout << "Subtracted: " << a << " - " << b << std::endl;
                 break;
             }
             case OP_MULTIPLY: {
-                double b = pop();
-                double a = pop();
+                uint32_t b = pop();
+                uint32_t a = pop();
                 push(a * b);
 
                 std::cout << "Multiplied: " << a << " * " << b << std::endl;
                 break;
             }
             case OP_DIVIDE: {
-                double b = pop();
-                double a = pop();
+                uint32_t b = pop();
+                uint32_t a = pop();
                 push(a / b);
 
                 std::cout << "Divided: " << a << " / " << b << std::endl;

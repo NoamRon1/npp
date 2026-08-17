@@ -8,8 +8,6 @@ add_executable(Compiler
 		AST/Types/Integer.h
 		AST/Operators/BinaryOperator.cpp
 		AST/Operators/BinaryOperator.h
-		AST/Types/Float.cpp
-		AST/Types/Float.h
 		Opcodes.h
 		ByteWriter.cpp
 )
