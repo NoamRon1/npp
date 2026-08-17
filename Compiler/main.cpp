@@ -8,10 +8,10 @@
 
 int main() {
     Integer int1(1);
-    Float float2(2.5);
+    Integer int2(2);
     Integer int3(3);
 
-    BinaryOperator add1(&int1, &float2, ADDITION);
+    BinaryOperator add1(&int1, &int2, ADDITION);
     BinaryOperator add2(&int3, &add1, MULTIPLICATION);
     add2.print();
     std::cout << std::endl << std::endl;
