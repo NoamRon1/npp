@@ -5,5 +5,8 @@ add_executable(Interpreter
 	main.cpp
         VM.cpp
         VM.h
-		chunk.h
+		Chunk.h
+		ByteReader.cpp
+		ByteReader.h
+		Opcodes.h
 )

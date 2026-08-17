@@ -1,14 +1,14 @@
 #ifndef NPP_VM_H
 #define NPP_VM_H
 
-#include "chunk.h"
+#include "Chunk.h"
 
 #define STACK_MAX 256
 
 class VM {
 public:
     VM() = default;
-    void run(const chunk& chunk);
+    void run(const Chunk& chunk);
 
 private:
     double _stack[STACK_MAX];

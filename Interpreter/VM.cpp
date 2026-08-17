@@ -1,6 +1,6 @@
 #include "VM.h"
 #include <cstring>
-#include "chunk.h"
+#include "Chunk.h"
 #include <iostream>
 
 void VM::push(double value) {
@@ -13,20 +13,22 @@ double VM::pop() {
     return *_sp;
 }
 
-void VM::run(const chunk& chunk) {
+void VM::run(const Chunk& chunk) {
     _sp = _stack;
 
 
     const uint8_t* ip = chunk.code.data();
 
     while (true) {
-        uint8_t instruction = *ip++;
+        Byte instruction = *ip++;
 
         switch (instruction) {
             case OP_PUSH: {
-                uint8_t value;
+                uint32_t value;
                 std::memcpy(&value, ip, sizeof(value));
                 push(value);
+                ip += 4;
+
                 break;
             }
             case OP_ADD: {
