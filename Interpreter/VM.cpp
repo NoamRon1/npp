@@ -1,4 +1,5 @@
 #include "VM.h"
+#include <cstring>
 #include "chunk.h"
 #include <iostream>
 
@@ -22,9 +23,10 @@ void VM::run(const chunk& chunk) {
         uint8_t instruction = *ip++;
 
         switch (instruction) {
-            case OP_CONSTANT: {
-                uint8_t constIndex = *ip++;
-                push(chunk.constants[constIndex]);
+            case OP_PUSH: {
+                uint8_t value;
+                std::memcpy(&value, ip, sizeof(value));
+                push(value);
                 break;
             }
             case OP_ADD: {
